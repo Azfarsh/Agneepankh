@@ -1,0 +1,183 @@
+.landing-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.landing-logo {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 180px;
+  z-index: 2;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #ffe29f44;
+  background: rgba(255,255,255,0.7);
+  padding: 8px;
+} 
+
+.clickable-area {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+} 
+
+ .guru {
+  top: 28%;
+  left: 26%;
+  width: 18%;
+  height: 55%;
+} 
+
+.student1 {
+  top: 55%;
+  left: 5%;
+  width: 15%;
+  height: 44%;
+}
+
+.student2 {
+  top: 46%;
+  left: 59%;
+  width: 10%;
+  height: 40%;
+}
+
+.student3 {
+  top: 52%;
+  left: 72%;
+  width: 10%;
+  height: 40%;
+} 
+
+.student4 {
+  top: 54%;
+  left: 84%;
+  width: 10%;
+  height: 44%;
+} 
+
+.tree {
+  top: 2%;
+  left: 3%;
+  width: 8%;
+  height: 50%;
+}
+
+.help-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: #f7cac9;
+  color: #3a5a40;
+  border: none;
+  border-radius: 22px;
+  width: auto;
+  height: 44px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #3a5a4044;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  letter-spacing: 1px;
+  transition: background 0.2s;
+}
+
+.help-btn:hover {
+  background: #a7c957;
+  color: #fff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  width: 420px;
+  height: 480px;
+  max-width: 90vw;
+  max-height: 90vh;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(34, 49, 63, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  animation: fadeInUp 0.5s;
+}
+
+.help-img {
+  max-width: 220px;
+  max-height: 180px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 2px 12px #0081a733;
+  cursor: zoom-in;
+  display: block;
+  margin: 0 auto 18px auto;
+}
+
+.help-img.expanded {
+  max-width: 90vw;
+  max-height: 80vh;
+  cursor: zoom-out;
+  z-index: 10;
+  box-shadow: 0 8px 32px #0081a799;
+}
+
+.help-instructions {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: #3a5a40;
+}
+
+.modal-controls button {
+  margin: 0 8px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #a7c957;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modal-controls button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@keyframes landingFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing-container {
+  animation: landingFadeInUp 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}

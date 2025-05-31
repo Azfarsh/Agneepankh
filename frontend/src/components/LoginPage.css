@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #3a5a40 0%, #a7c957 50%, #f7cac9 100%);
+}
+
+.login-main-container {
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1);
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.login-card {
+  background: rgba(255,255,255,0.97);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(34, 49, 63, 0.18);
+  padding: 18px 40px 18px 40px;  
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.login-logo-centered {
+  width: 120px;
+  margin-bottom: 18px;
+  margin-top: -10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #ffe29f44;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #3b2e5a;
+  margin-bottom: 0.2em;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #ffe29f88;
+  text-align: center;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #6b8e23;
+  font-weight: 600;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.app-intro {
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  padding: 18px 18px 12px 18px;
+  margin-bottom: 1.5em;
+  color: #4e3c1e;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px #ffe29f33;
+  text-align: left;
+  width: 100%;
+}
+
+.app-intro ul {
+  margin: 0.5em 0 0.5em 1.2em;
+  padding: 0;
+}
+
+.app-intro li {
+  margin-bottom: 0.3em;
+}
+
+.google-signin-btn {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #f7cac9 0%, #92a8d1 100%);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(146, 168, 209, 0.12);
+  color: #3b2e5a;
+  width: 100%;
+  justify-content: center;
+}
+
+.google-signin-btn:hover {
+  background: linear-gradient(90deg, #92a8d1 0%, #f7cac9 100%);
+  box-shadow: 0 4px 16px rgba(146, 168, 209, 0.18);
+}
+
+.google-icon {
+  width: 24px;
+  margin-right: 12px;
+}
+
+.error-message {
+  color: #b22222;
+  background: #fff0f0;
+  border: 1px solid #f7b2b2;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 18px;
+  font-size: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    padding: 24px 8px 24px 8px;
+    max-width: 98vw;
+  }
+  .app-intro {
+    padding: 12px 6px 10px 6px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
