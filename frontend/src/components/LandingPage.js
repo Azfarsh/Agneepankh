@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./LandingPage.css";
-import background from "../assets/imageback.png";
-import appLogo from "../assets/logo1.png";
-import guruHelp from "../assets/guru1.png";
-import studentHelp from "../assets/student1.png";
-import treeHelp from "../assets/tree1.png";
+import background from "../assets/new-background.png";
+import appLogo from "../assets/logo.png";
+import guruHelp from "../assets/guru.png";
+import studentHelp from "../assets/student.png";
+import treeHelp from "../assets/tree.png";
 
 const helpSlides = [
   {
@@ -30,6 +30,7 @@ const LandingPage = () => {
   const [expanded, setExpanded] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
+  const [showAreas, setShowAreas] = useState(false);
 
   useEffect(() => {
     if (location.state && location.state.showGuide) {
@@ -59,19 +60,19 @@ const LandingPage = () => {
   };
 
   const handleGuruClick = () => {
-    navigate("/guru-questions");
+    navigate("/guru");
   };
 
   const handleStudentClick = () => {
-    navigate("/student-questions");
+    navigate("/student");
   };
 
   const handleTreeClick = () => {
-    navigate("/tree-questions");
+    navigate("/tree");
   };
 
   return (
-    <div className="landing-container">
+    <div className={`landing-container${showAreas ? " show-areas" : ""}`}>
       {showOverlay && (
         <div className="cloud-blue-overlay fade-in-out" onClick={handleOverlayClick}>
           <div className="cloud-animation" />
@@ -82,6 +83,13 @@ const LandingPage = () => {
         <img src={appLogo} alt="Agnee Pankh Logo" className="landing-logo" />
         {/* Help Button */}
         <button className="help-btn" onClick={() => setShowHelp(true)}>User Guide</button>
+        {/* <button
+          className="help-btn"
+          style={{ top: 80, right: 32, position: "absolute" }}
+          onClick={() => setShowAreas((prev) => !prev)}
+        >
+        {showAreas ? "Hide Clickable Areas" : "Show Clickable Areas"}
+        </button> */}
         {/* Help Modal */}
         {showHelp && (
           <div className="modal-overlay" onClick={handleModalClick}>

@@ -3,7 +3,7 @@ import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import appLogo from "../assets/logo1.png";
+import appLogo from "../assets/logo.png";
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -28,11 +28,11 @@ const LoginPage = () => {
     <div className="login-main-container">
       <div className="login-card">
         <img src={appLogo} alt="Agnee Pankh Logo" className="login-logo-centered" />
-        <h1 className="app-title">Agnee Pankh</h1>
+        <h1 className="app-title">Agneepankh</h1>
         <div className="tagline">Empower to walk, run and fly 1 day.</div>
         <div className="app-intro">
           <p>
-            Welcome to <b>Agnee Pankh</b>! This app is designed to collect valuable insights through MCQ-based surveys from three unique perspectives:
+            Welcome to <b>Agneepankh</b>! This app is designed to collect valuable insights through MCQ-based surveys from three unique perspectives:
           </p>
           <ul>
             <li>
