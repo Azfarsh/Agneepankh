@@ -3,7 +3,7 @@ import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import appLogo from "../assets/logo.png";
+import appLogo from "../assets/logo1.png";
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -47,7 +47,7 @@ const LoginPage = () => {
           </ul>
           <p>
             <b>How it works:</b> <br />
-            Log in to begin. On the next page, choose your role by clicking on Guru, Student, or Tree. You’ll then answer a set of MCQ questions tailored to your role. Your responses help us empower and uplift the entire learning community!
+            Log in to begin. On the next page, choose your role by clicking on Guru, Student, or Tree. You'll then answer a set of MCQ questions tailored to your role. Your responses help us empower and uplift the entire learning community!
           </p>
         </div>
         <button className="google-signin-btn" onClick={handleGoogleSignIn}>

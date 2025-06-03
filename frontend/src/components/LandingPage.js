@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./LandingPage.css";
-import background from "../assets/background.png";
-import appLogo from "../assets/logo.png";
-import guruHelp from "../assets/guru-border.png";
-import studentHelp from "../assets/student-border.png";
-import treeHelp from "../assets/tree-border.png";
+import background from "../assets/imageback.png";
+import appLogo from "../assets/logo1.png";
+import guruHelp from "../assets/guru1.png";
+import studentHelp from "../assets/student1.png";
+import treeHelp from "../assets/tree1.png";
 
 const helpSlides = [
   {
@@ -28,6 +28,8 @@ const LandingPage = () => {
   const [showHelp, setShowHelp] = useState(false);
   const [slide, setSlide] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
+  const [contentVisible, setContentVisible] = useState(false);
 
   useEffect(() => {
     if (location.state && location.state.showGuide) {
@@ -35,52 +37,92 @@ const LandingPage = () => {
       window.history.replaceState({}, document.title);
     }
   }, [location.state]);
-  
+
+  useEffect(() => {
+    if (showOverlay) {
+      const timer = setTimeout(() => {
+        setShowOverlay(false);
+        setTimeout(() => setContentVisible(true), 400); // match fade duration
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showOverlay]);
+
+  const handleOverlayClick = () => {
+    setShowOverlay(false);
+    setTimeout(() => setContentVisible(true), 400); // match fade duration
+  };
+
   const handleModalClick = (e) => {
     if (e.target.classList.contains("modal-content")) return;
     if (!e.target.classList.contains("help-img")) setExpanded(false);
   };
 
+  const handleGuruClick = () => {
+    navigate("/guru-questions");
+  };
+
+  const handleStudentClick = () => {
+    navigate("/student-questions");
+  };
+
+  const handleTreeClick = () => {
+    navigate("/tree-questions");
+  };
+
   return (
     <div className="landing-container">
-      <img src={background} alt="Background" className="background-image" />
-      <img src={appLogo} alt="Agnee Pankh Logo" className="landing-logo" />
-
-      {/* Help Button */}
-<button className="help-btn" onClick={() => setShowHelp(true)}>User Guide</button>
-
-      {/* Help Modal */}
-      {showHelp && (
-        <div className="modal-overlay" onClick={handleModalClick}>
-          <div className="modal-content">
-            <h2 className="modal-heading">User Guide</h2>
-            <img
-              src={helpSlides[slide].img}
-              alt="Help"
-              className={`help-img${expanded ? " expanded" : ""}`}
-              onClick={e => {
-                e.stopPropagation();
-                setExpanded(!expanded);
-              }}
-              style={{ cursor: "zoom-in" }}
-            />
-            <div className="help-instructions">{helpSlides[slide].text}</div>
-            <div className="modal-controls">
-              <button onClick={() => setSlide(s => Math.max(0, s - 1))} disabled={slide === 0}>Prev</button>
-              <button onClick={() => setSlide(s => Math.min(helpSlides.length - 1, s + 1))} disabled={slide === helpSlides.length - 1}>Next</button>
-              <button onClick={() => setShowHelp(false)}>Close</button>
-            </div>
-          </div>
+      {showOverlay && (
+        <div className="cloud-blue-overlay fade-in-out" onClick={handleOverlayClick}>
+          <div className="cloud-animation" />
         </div>
       )}
-
-      {/* Clickable areas */}
-      <div className="clickable-area guru" onClick={() => navigate("/guru")} />
-      <div className="clickable-area student1" onClick={() => navigate("/student")} />
-      <div className="clickable-area student2" onClick={() => navigate("/student")} />
-      <div className="clickable-area student3" onClick={() => navigate("/student")} />
-      <div className="clickable-area student4" onClick={() => navigate("/student")} />
-      <div className="clickable-area tree" onClick={() => navigate("/tree")} />
+      <div className={`landing-content-animated${contentVisible ? " visible" : ""}`} style={{ display: showOverlay ? 'none' : 'block' }}>
+        <img src={background} alt="Background" className="background-image" />
+        <img src={appLogo} alt="Agnee Pankh Logo" className="landing-logo" />
+        {/* Help Button */}
+        <button className="help-btn" onClick={() => setShowHelp(true)}>User Guide</button>
+        {/* Help Modal */}
+        {showHelp && (
+          <div className="modal-overlay" onClick={handleModalClick}>
+            <div className="modal-content">
+              <h2 className="modal-heading">User Guide</h2>
+              <img
+                src={helpSlides[slide].img}
+                alt="Help"
+                className={`help-img${expanded ? " expanded" : ""}`}
+                onClick={e => {
+                  e.stopPropagation();
+                  setExpanded(!expanded);
+                }}
+                style={{ cursor: "zoom-in" }}
+              />
+              <div className="help-instructions">{helpSlides[slide].text}</div>
+              <div className="modal-controls">
+                <button onClick={() => setSlide(s => Math.max(0, s - 1))} disabled={slide === 0}>Prev</button>
+                <button onClick={() => setSlide(s => Math.min(helpSlides.length - 1, s + 1))} disabled={slide === helpSlides.length - 1}>Next</button>
+                <button onClick={() => setShowHelp(false)}>Close</button>
+              </div>
+            </div>
+          </div>
+        )}
+        {/* Clickable areas */}
+        <div 
+          className="clickable-area guru" 
+          onClick={handleGuruClick}
+          style={{ cursor: 'pointer' }}
+        />
+        <div 
+          className="clickable-area student" 
+          onClick={handleStudentClick}
+          style={{ cursor: 'pointer' }}
+        />
+        <div 
+          className="clickable-area tree" 
+          onClick={handleTreeClick}
+          style={{ cursor: 'pointer' }}
+        />
+      </div>
     </div>
   );
 };

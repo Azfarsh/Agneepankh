@@ -27,14 +27,26 @@
   position: absolute;
   cursor: pointer;
   z-index: 10;
+  transition: transform 0.2s ease;
 } 
 
- .guru {
+.clickable-area:hover {
+  transform: scale(1.05);
+}
+
+.guru {
   top: 28%;
   left: 26%;
   width: 18%;
   height: 55%;
 } 
+
+.student {
+  top: 46%;
+  left: 59%;
+  width: 25%;
+  height: 44%;
+}
 
 .student1 {
   top: 55%;
@@ -180,4 +192,62 @@
 
 .landing-container {
   animation: landingFadeInUp 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cloud-blue-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #b3e0ff 0%, #e0f7fa 100%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: overlayFadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+.fade-in-out {
+  opacity: 1;
+  animation: overlayFadeIn 0.4s, overlayFadeOut 0.4s 4.6s;
+  pointer-events: all;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes overlayFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.cloud-animation {
+  width: 180px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50% 50% 60% 60% / 60% 60% 50% 50%;
+  box-shadow:
+    60px 0 0 0 #fff,
+    120px 10px 0 0 #fff,
+    90px 30px 0 0 #e0f7fa,
+    30px 20px 0 0 #b3e0ff;
+  opacity: 0.85;
+  animation: cloudFloat 4s ease-in-out infinite alternate;
+}
+@keyframes cloudFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(-18px); }
+}
+
+.landing-content-animated {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.landing-content-animated.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

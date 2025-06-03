@@ -6,15 +6,14 @@ body {
 }
 
 .login-main-container {
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1);
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 
 .login-card {
@@ -27,7 +26,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .login-logo-centered {
@@ -91,7 +89,6 @@ body {
   font-size: 16px;
   font-weight: 600;
   margin-top: 8px;
-  transition: background 0.3s, box-shadow 0.3s;
   box-shadow: 0 2px 8px rgba(146, 168, 209, 0.12);
   color: #3b2e5a;
   width: 100%;
@@ -127,16 +124,5 @@ body {
   }
   .app-intro {
     padding: 12px 6px 10px 6px;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
