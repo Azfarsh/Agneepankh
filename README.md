@@ -1,4 +1,4 @@
-## Getting StartedAdd commentMore actions
+## A Guide on how to run the project
 
 ### 1. Clone the Repository
 
