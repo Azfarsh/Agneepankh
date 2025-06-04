@@ -5,6 +5,7 @@ import LoginPage from "./components/LoginPage";
 import GuruPage from "./components/GuruPage";
 import StudentPage from "./components/StudentPage";
 import TreePage from "./components/TreePage";
+import FeedbackPage from "./components/Feedback";
 import "./App.css";
 
 function App() {
@@ -36,6 +37,12 @@ function App() {
               <TreePage />
           }
         />
+        <Route
+          path="/feedback"
+          element={
+              <FeedbackPage />
+          }
+        />  
       </Routes>
     </Router>
   );

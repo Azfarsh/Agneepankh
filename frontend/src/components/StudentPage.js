@@ -8,7 +8,6 @@ const StudentPage = () => {
   const navigate = useNavigate();
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
-  const [submitted, setSubmitted] = useState(false);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -49,25 +48,8 @@ const StudentPage = () => {
         })),
       }),
     });
-    setSubmitted(true);
+    navigate("/feedback");
   };
-
-  const handleGoBack = () => {
-    navigate("/");
-  };
-
-  if (submitted)
-    return (
-      <div className="thank-you-msg">
-        <div>
-          Thank you for submitting your answers!
-          <br />
-          <button className="go-back-btn" onClick={handleGoBack}>
-            Go back to Login
-          </button>
-        </div>
-      </div>
-    );
 
   if (!questions.length) return <div>Loading...</div>;
 

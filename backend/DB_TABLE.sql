@@ -33,3 +33,11 @@ CREATE TABLE user_answers (
     answers JSONB NOT NULL,
     answered_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE feedback (
+    id SERIAL PRIMARY KEY,
+    uid VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    feedback TEXT NOT NULL
+);
