@@ -49,8 +49,14 @@ cd freelancing
 4. **Firebase Service Account:**
    - Download your `serviceAccountKey.json` from your Firebase project settings.
    - Place it in the `backend` folder.
-
-5. **Start the backend server:**
+5. **PostgreSQL Tables and Data:**
+   - In the backend folder, there is a file named DB_TABLE.sql which contains:
+   - CREATE TABLE queries for:
+      - mcq_questions
+      - user_answers
+      - feedback
+   - You are requested to create these tables and insert the initial data  into your PostgreSQL database before running the backend.
+7. **Start the backend server:**
    ```bash
    npm run dev
    ```
